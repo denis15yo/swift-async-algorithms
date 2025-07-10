@@ -45,31 +45,23 @@ let package = Package(
         .product(name: "OrderedCollections", package: "swift-collections"),
         .product(name: "DequeModule", package: "swift-collections"),
       ],
-      swiftSettings: availabilityMacros + [
-        .enableExperimentalFeature("StrictConcurrency=complete")
-      ]
+      swiftSettings: availabilityMacros
     ),
     .target(
       name: "AsyncSequenceValidation",
       dependencies: ["_CAsyncSequenceValidationSupport", "AsyncAlgorithms"],
-      swiftSettings: availabilityMacros + [
-        .enableExperimentalFeature("StrictConcurrency=complete")
-      ]
+      swiftSettings: availabilityMacros
     ),
     .systemLibrary(name: "_CAsyncSequenceValidationSupport"),
     .target(
       name: "AsyncAlgorithms_XCTest",
       dependencies: ["AsyncAlgorithms", "AsyncSequenceValidation"],
-      swiftSettings: availabilityMacros + [
-        .enableExperimentalFeature("StrictConcurrency=complete")
-      ]
+      swiftSettings: availabilityMacros
     ),
     .testTarget(
       name: "AsyncAlgorithmsTests",
       dependencies: ["AsyncAlgorithms", "AsyncSequenceValidation", "AsyncAlgorithms_XCTest"],
-      swiftSettings: availabilityMacros + [
-        .enableExperimentalFeature("StrictConcurrency=complete")
-      ]
+      swiftSettings: availabilityMacros
     ),
   ]
 )
